@@ -10,9 +10,9 @@
     {% endif %}
     {% if site.secondary_navigation %}
         <div class="site-nav-right">
-            {% for doc in site.secondary_navigation %}
-                <a {% if page.url == item.url %}aria-current="page"{% endif %} class="site-nav-item" href="{{ item.url }}">
-                    {{ item.label }}
+            {% for item in site.secondary_navigation %}
+                <a {% if page.url == doc.url %}aria-current="page"{% endif %} class="site-nav-item{% if doc.featured %}  site-nav-button-featured{% endif %}" href="{{ doc.url }}">
+                    {{ doc.meta_title if doc.meta_title else doc.title }}
                 </a>
             {% endfor %}
         </div>
